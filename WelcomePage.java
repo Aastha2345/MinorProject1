@@ -1,90 +1,101 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.io.IOException;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static java.lang.System.exit;
+
 public class WelcomePage extends JFrame
 {
     Frame fObj;
-    Button button1, button2, button3, button4, button5, button6, button7;
-    Label l1;
+    JFrame frame = new JFrame();
+    JButton Insert, Delete, Search, Update, Display, Emergency,Exit;
+    JLabel l1;
     Font f1;
     Font f2;
 
     WelcomePage() {
         fObj = new Frame ("Digital Telephone Diary");
-        button1 = new Button("Insert");
-        button2 = new Button("Delete");
-        button3 = new Button("Search");
-        button4 = new Button("Update");
-        button5 = new Button("Display");
-        l1 = new Label("Telephone Diary");
+        Insert = new JButton("Insert");
+        Delete = new JButton("Delete");
+        Search = new JButton("Search");
+        Update = new JButton("Update");
+        Display = new JButton("Display");
+        Emergency = new JButton("Emergency Contacts");
+        Exit = new JButton("EXIT");
+        l1 = new JLabel("Telephone Diary");
         f1 = new Font("Algerian",Font.BOLD,40);
         f2 = new Font("Monospaced",Font.ITALIC,15);
         l1.setFont(f1);
         fObj.add(l1);
-        button1.setFont(f2);
-        button2.setFont(f2);
-        button3.setFont(f2);
-        button4.setFont(f2);
-        button5.setFont(f2);
-        fObj.add(button1);
-        fObj.add(button2);
-        fObj.add(button3);
-        fObj.add(button4);
-        fObj.add(button5);
+        Insert.setFont(f2);
+        Delete.setFont(f2);
+        Search.setFont(f2);
+        Update.setFont(f2);
+        Display.setFont(f2);
+        Emergency.setFont(f2);
+        Exit.setFont(f2);
+        fObj.add(Insert);
+        fObj.add(Delete);
+        fObj.add(Search);
+        fObj.add(Update);
+        fObj.add(Display);
+        fObj.add(Emergency);
+        fObj.add(Exit);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fObj.setLayout(new FlowLayout(FlowLayout.CENTER,1920,60));
-        fObj.setSize(300,400);
+        fObj.setSize(1920,1080);
+        frame.setLayout(null);
         fObj.setVisible(true);
+        Exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exit(0);
+            }
+        });
+        Insert.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Insertion insertion = new Insertion();
+            }
+        });
+        Delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Deletion deletion = new Deletion();
+            }
+        });
+        Update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Updation updation = new Updation();
+            }
+        });
+        Search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Searching searching = new Searching();
+            }
+        });
+        Display.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Displaying displaying = new Displaying();
+            }
+        });
+        Emergency.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Emergency_Contact emergency_contact = new Emergency_Contact();
+            }
+        });
     }
+
+
 
     public static void main (String args[])
     {
         new Menu();
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import javax.swing.*;
-import java.awt.*;
-import javax.swing.JFrame;
-
-public class WelcomePage {
-    JFrame frame = new JFrame();
-    JLabel welcomeLabel = new JLabel("Telephone Diary");
-
-    WelcomePage(){
-        welcomeLabel.setBounds(0,0,200,35);
-        welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
-
-        frame.add(welcomeLabel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
-        frame.setLayout(null);
-        frame.setVisible(true);
-    }
-}
-*/
